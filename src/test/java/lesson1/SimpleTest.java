@@ -1,14 +1,24 @@
+package lesson1;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
 public class SimpleTest {
+
+    @BeforeClass
+    public void beforeClass() {
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+    }
 
     @Test
     public void SimpleTest(){
@@ -26,8 +36,9 @@ public class SimpleTest {
         //4
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
+        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
-        driver.findElement(By.cssSelector("id=['login-button']")).click();
+        driver.findElement(By.cssSelector("[id='login-button']")).click();
         //5
         driver.close();
     }
