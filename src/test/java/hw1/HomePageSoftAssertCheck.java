@@ -114,6 +114,9 @@ public class HomePageSoftAssertCheck {
         WebElement footer = driver.findElement(By.xpath(".//div[contains(@class, 'footer-content')]"));
         softAssert.assertTrue(footer.isDisplayed());
 
+        //!!!missed call for softAssert final check!!!
+        //softAssert.assertAll();
+
         //17 Close browser
         driver.close();
     }

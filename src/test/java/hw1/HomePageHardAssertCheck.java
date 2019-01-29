@@ -45,14 +45,15 @@ public class HomePageHardAssertCheck {
         driver.findElement(By.cssSelector("[id='login-button']")).click();
 
         //4 Assert User name
-        WebElement username = driver.findElement (By.cssSelector("[id='user-name']"));
+        WebElement username = driver.findElement(By.cssSelector("[id='user-name']"));
         assertEquals(username.getText(), "PITER CHAILOVSKII");
 
         //5 Assert title Home Page
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert 4 items
-        List<WebElement> topbar = driver.findElements (By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
+        //!!!check that elements are displayed
+        List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
 
         assertEquals(topbar.get(0).getText(), "HOME");
@@ -67,6 +68,7 @@ public class HomePageHardAssertCheck {
             assertTrue(images.get(i).isDisplayed());
 
         //8 Assert 4 texts
+        //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
 
@@ -80,7 +82,7 @@ public class HomePageHardAssertCheck {
         assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 Assert iFrame
-        WebElement iframe = driver.findElement (By.cssSelector("[id='iframe']"));
+        WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));
         assertTrue(iframe.isDisplayed());
 
         //11 Assert logo inside of iframe
