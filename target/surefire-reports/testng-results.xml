@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestNg Suite" duration-ms="11823" started-at="2019-01-26T19:37:49Z" finished-at="2019-01-26T19:38:01Z">
+    <groups>
+    </groups>
+    <test name="Test 1" duration-ms="11823" started-at="2019-01-26T19:37:49Z" finished-at="2019-01-26T19:38:01Z">
+      <class name="lesson2.SimpleTestParallel">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:lesson2.SimpleTestParallel@68837a77]" name="beforeClass" is-config="true" duration-ms="9" started-at="2019-01-26T19:37:49Z" finished-at="2019-01-26T19:37:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="SimpleTest2()[pri:0, instance:lesson2.SimpleTestParallel@68837a77]" name="SimpleTest2" duration-ms="7119" started-at="2019-01-26T19:37:49Z" finished-at="2019-01-26T19:37:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SimpleTest2 -->
+        <test-method status="PASS" signature="SimpleTest1()[pri:0, instance:lesson2.SimpleTestParallel@68837a77]" name="SimpleTest1" duration-ms="7332" started-at="2019-01-26T19:37:49Z" finished-at="2019-01-26T19:37:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SimpleTest1 -->
+        <test-method status="PASS" signature="SimpleTest3()[pri:0, instance:lesson2.SimpleTestParallel@68837a77]" name="SimpleTest3" duration-ms="4672" started-at="2019-01-26T19:37:56Z" finished-at="2019-01-26T19:38:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SimpleTest3 -->
+      </class> <!-- lesson2.SimpleTestParallel -->
+    </test> <!-- Test 1 -->
+  </suite> <!-- TestNg Suite -->
+</testng-results>

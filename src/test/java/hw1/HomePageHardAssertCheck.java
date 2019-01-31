@@ -55,6 +55,8 @@ public class HomePageHardAssertCheck {
         //!!!check that elements are displayed
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
+        for (int i = 0; i < 4; i++)
+            assertTrue(topbar.get(i).isDisplayed());
 
         assertEquals(topbar.get(0).getText(), "HOME");
         assertEquals(topbar.get(1).getText(), "CONTACT FORM");
@@ -71,6 +73,8 @@ public class HomePageHardAssertCheck {
         //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
+        for (int i = 0; i < 4; i++)
+            assertTrue(texts.get(i).isDisplayed());
 
         assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");

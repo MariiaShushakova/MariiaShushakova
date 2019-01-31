@@ -115,7 +115,7 @@ public class HomePageSoftAssertCheck {
         softAssert.assertTrue(footer.isDisplayed());
 
         //!!!missed call for softAssert final check!!!
-        //softAssert.assertAll();
+        softAssert.assertAll();
 
         //17 Close browser
         driver.close();
