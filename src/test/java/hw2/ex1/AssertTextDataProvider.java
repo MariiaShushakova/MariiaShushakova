@@ -2,35 +2,30 @@ package hw2.ex1;
 
 import base.SeleniumBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
 public class AssertTextDataProvider extends SeleniumBase {
-    private WebDriver driver;
 
-//    @BeforeClass
-//    public void beforeClass() {
-//        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-//    }
 
-    @BeforeMethod
-    public void beforeMethod() {
+    @BeforeTest
+    public void beforeTest() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    @DataProvider
+    @AfterTest
+    public void afterTest(){
+        driver.close();
+    }
+
+
+    @DataProvider (parallel = true)
     public Object[][] textData() {
         return new Object[][] {
                 {0, "To include good practices\n" + "and ideas from successful\n" + "EPAM project"},
@@ -40,19 +35,19 @@ public class AssertTextDataProvider extends SeleniumBase {
         };
     }
 
-
     @Test(dataProvider = "textData")
     public void AssertText(int i, String s) {
 
         //1 Open test site by URL
         driver.navigate().to("https://epam.github.io/JDI/");
 
-        //2
+        //2 Find texts and assert value
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
 
+        assertEquals(texts.get(i).getText(), s);
 
-        assertEquals(s, texts.get(i).getText());
+
 
     }
 

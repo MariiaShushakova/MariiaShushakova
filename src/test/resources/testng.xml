@@ -4,7 +4,7 @@
     <test name="Test 1"   >
 
         <classes>
-            <class name="lesson2.SimpleTestParallel" />
+            <class name="hw2.ex1.AssertTextDataProvider" />
         </classes>
 
     </test>
