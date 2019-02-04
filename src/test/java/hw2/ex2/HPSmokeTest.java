@@ -4,6 +4,7 @@ import base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+// TODO please remove unused imports
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO please pay attention for comments in HPRegression2Smoke1Test class
 public class HPSmokeTest extends SeleniumBase {
 
     @Test(groups = "Smoke")

@@ -5,6 +5,7 @@ import HW3.enums.Links;
 import HW3.enums.Titles;
 import HW3.enums.Users;
 import base.SeleniumBase;
+// TODO please do not forget delete unused imports
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+// TODO please do not forget delete unused imports
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -24,6 +26,7 @@ public class HomePageObjectTest extends SeleniumBase {
     private WebDriver driver;
     private HomePage homePage;
 
+    // TODO please do not forget delete commented block of code
     /*@BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();

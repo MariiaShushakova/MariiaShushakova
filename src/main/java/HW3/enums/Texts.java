@@ -1,6 +1,7 @@
 package HW3.enums;
 
 public enum Texts {
+    // TODO Please try to lead enum as described in Java code Convention
     TextPRACTICE("To include good practices\n" +
             "and ideas from successful\n" +
             "EPAM project"),
@@ -18,6 +19,7 @@ public enum Texts {
 
     }
 
+    // TODO Please try to lead enum as described in Java code Convention
     public String getValue() {
         return itemText;
     }
