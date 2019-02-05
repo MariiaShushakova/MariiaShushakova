@@ -8,8 +8,6 @@ import static java.lang.System.setProperty;
 
 public abstract class SeleniumBase {
     protected WebDriver driver;
-    protected WebDriver driver2;
-    protected WebDriver driver3;
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
