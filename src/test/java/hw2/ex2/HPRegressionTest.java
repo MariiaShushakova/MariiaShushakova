@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO Please pay attention for comments in HPRegression2Smoke1Test class
 public class HPRegressionTest extends SeleniumBase {
 
     @Test(groups = "Regression")

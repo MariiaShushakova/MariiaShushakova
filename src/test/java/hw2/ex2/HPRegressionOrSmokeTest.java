@@ -13,12 +13,16 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO I recommend try to find better name for the class
 public class HPRegressionOrSmokeTest extends SeleniumBase {
 
     @Test(groups = "Regression")
     public void HPRegressionOrSmokeTest1(){
         //new instance of browser
         WebDriver driver;
+        /* TODO
+            Please try to avoid using code duplication. Driver initialization exist in each test
+         */
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
@@ -31,6 +35,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
 
         //3 LogIn
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
+        // TODO What is purpose of current method invocation?
         driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
@@ -46,6 +51,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
         //6 Assert 4 items
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
+        // TODO please do not forget use {} brace for for cycle body
         for (int i = 0; i < 4; i++)
             assertTrue(topbar.get(i).isDisplayed());
 
@@ -57,12 +63,14 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
         //7 Assert 4 images
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
+        // TODO please do not forget use {} brace for for cycle body
         for (int i = 0; i < 4; i++)
             assertTrue(images.get(i).isDisplayed());
 
         //8 Assert 4 texts
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
+        // TODO please do not forget use {} brace for for cycle body
         for (int i = 0; i < 4; i++)
             assertTrue(texts.get(i).isDisplayed());
 
@@ -73,6 +81,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
 
         //9 Assert a text of the main headers
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
+        // TODO Please format as java code convention. Line is more then 80 char length
         assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 Assert iFrame
@@ -90,6 +99,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
         driver.switchTo().window(windowHandler);
 
         //13 Assert test JDI GITHUB
+        // TODO Why you use . at the start of xpath?
         WebElement subHeader = driver.findElement(By.xpath(".//a[text()='JDI Github']"));
         assertTrue(subHeader.isDisplayed());
         assertEquals(subHeader.getText(), "JDI GITHUB");
@@ -110,6 +120,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
         driver.close();
     }
 
+    // TODO Please pay attention for comments in test1
     @Test(groups = "Regression")
     public void HPRegressionOrSmokeTest2(){
         //new instance of browser
@@ -207,6 +218,7 @@ public class HPRegressionOrSmokeTest extends SeleniumBase {
         driver.close();
     }
 
+    // TODO Please pay attention for comments in test1
     @Test(groups = "Smoke")
     public void HPRegressionOrSmokeTest3(){
         //new instance of browser
