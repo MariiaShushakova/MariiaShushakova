@@ -2,12 +2,14 @@ package hw2.ex3;
 
 import base.SeleniumBase;
 import org.openqa.selenium.By;
+// TODO please remove unused imports
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 import java.util.List;
+// TODO please remove unused imports
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
@@ -35,6 +37,7 @@ public class HPAnnotationTest extends SeleniumBase{
 
 
     @Test
+    // TODO please pay attention for comments in HPRegression2Smoke1Test class
     public void HomePageHardAssertTest1(){
 
         //1 Open test site by URL

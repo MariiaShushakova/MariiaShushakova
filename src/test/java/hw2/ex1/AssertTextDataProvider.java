@@ -13,6 +13,7 @@ import static org.testng.Assert.assertEquals;
 public class AssertTextDataProvider extends SeleniumBase {
 
 
+    // TODO Exist one more way how to parallel tests (use @BeforeTest)
     @BeforeTest
     public void beforeTest() {
         driver = new ChromeDriver();
@@ -36,6 +37,10 @@ public class AssertTextDataProvider extends SeleniumBase {
     }
 
     @Test(dataProvider = "textData")
+    /* TODO
+        * What does i means?
+        * What does s means?
+     */
     public void AssertText(int i, String s) {
 
         //1 Open test site by URL
