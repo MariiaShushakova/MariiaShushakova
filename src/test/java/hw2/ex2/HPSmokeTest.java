@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-// TODO please remove unused imports
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+// TODO please remove unused imports - fixed
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -16,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-// TODO please pay attention for comments in HPRegression2Smoke1Test class
+// TODO please pay attention for comments in HPRegression2Smoke1Test class - fixed
 public class HPSmokeTest extends SeleniumBase {
 
     @Test(groups = "Smoke")
@@ -35,7 +33,6 @@ public class HPSmokeTest extends SeleniumBase {
 
         //3 LogIn
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
-        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();
@@ -48,11 +45,11 @@ public class HPSmokeTest extends SeleniumBase {
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert 4 items
-        //!!!check that elements are displayed
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(topbar.get(i).isDisplayed());
+        }
 
         assertEquals(topbar.get(0).getText(), "HOME");
         assertEquals(topbar.get(1).getText(), "CONTACT FORM");
@@ -62,15 +59,16 @@ public class HPSmokeTest extends SeleniumBase {
         //7 Assert 4 images
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(images.get(i).isDisplayed());
+        }
 
         //8 Assert 4 texts
-        //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(texts.get(i).isDisplayed());
+        }
 
         assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
@@ -79,7 +77,7 @@ public class HPSmokeTest extends SeleniumBase {
 
         //9 Assert a text of the main headers
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
-        assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertEquals(driver.findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
 
         //10 Assert iFrame
         WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));
@@ -133,7 +131,6 @@ public class HPSmokeTest extends SeleniumBase {
         //3 LogIn
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
-        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();
 
@@ -145,11 +142,11 @@ public class HPSmokeTest extends SeleniumBase {
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert 4 items
-        //!!!check that elements are displayed
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(topbar.get(i).isDisplayed());
+        }
 
         assertEquals(topbar.get(0).getText(), "HOME");
         assertEquals(topbar.get(1).getText(), "CONTACT FORM");
@@ -159,15 +156,16 @@ public class HPSmokeTest extends SeleniumBase {
         //7 Assert 4 images
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(images.get(i).isDisplayed());
+        }
 
         //8 Assert 4 texts
-        //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(texts.get(i).isDisplayed());
+        }
 
         assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
@@ -176,7 +174,7 @@ public class HPSmokeTest extends SeleniumBase {
 
         //9 Assert a text of the main headers
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
-        assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertEquals(driver.findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
 
         //10 Assert iFrame
         WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));
@@ -230,7 +228,6 @@ public class HPSmokeTest extends SeleniumBase {
         //3 LogIn
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
-        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();
 
@@ -242,11 +239,11 @@ public class HPSmokeTest extends SeleniumBase {
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert 4 items
-        //!!!check that elements are displayed
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(topbar.get(i).isDisplayed());
+        }
 
         assertEquals(topbar.get(0).getText(), "HOME");
         assertEquals(topbar.get(1).getText(), "CONTACT FORM");
@@ -256,15 +253,16 @@ public class HPSmokeTest extends SeleniumBase {
         //7 Assert 4 images
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(images.get(i).isDisplayed());
+        }
 
         //8 Assert 4 texts
-        //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(texts.get(i).isDisplayed());
+        }
 
         assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
@@ -273,7 +271,7 @@ public class HPSmokeTest extends SeleniumBase {
 
         //9 Assert a text of the main headers
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
-        assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertEquals(driver.findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
 
         //10 Assert iFrame
         WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));

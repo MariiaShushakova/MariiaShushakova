@@ -2,17 +2,13 @@ package hw2.ex3;
 
 import base.SeleniumBase;
 import org.openqa.selenium.By;
-// TODO please remove unused imports
-import org.openqa.selenium.WebDriver;
+// TODO please remove unused imports - fixed
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 import java.util.List;
-// TODO please remove unused imports
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.System.setProperty;
+// TODO please remove unused imports - fixed
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -37,9 +33,8 @@ public class HPAnnotationTest extends SeleniumBase{
 
 
     @Test
-    // TODO please pay attention for comments in HPRegression2Smoke1Test class
+    // TODO please pay attention for comments in HPRegression2Smoke1Test class - fixed
     public void HomePageHardAssertTest1(){
-
         //1 Open test site by URL
         driver.navigate().to("https://epam.github.io/JDI/");
 
@@ -48,7 +43,6 @@ public class HPAnnotationTest extends SeleniumBase{
 
         //3 LogIn
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
-        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();
@@ -61,11 +55,11 @@ public class HPAnnotationTest extends SeleniumBase{
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert 4 items
-        //!!!check that elements are displayed
         List<WebElement> topbar = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(topbar.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(topbar.get(i).isDisplayed());
+        }
 
         assertEquals(topbar.get(0).getText(), "HOME");
         assertEquals(topbar.get(1).getText(), "CONTACT FORM");
@@ -75,15 +69,16 @@ public class HPAnnotationTest extends SeleniumBase{
         //7 Assert 4 images
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(images.get(i).isDisplayed());
+        }
 
         //8 Assert 4 texts
-        //!!!check that elements are displayed
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             assertTrue(texts.get(i).isDisplayed());
+        }
 
         assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
@@ -92,7 +87,7 @@ public class HPAnnotationTest extends SeleniumBase{
 
         //9 Assert a text of the main headers
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
-        assertEquals(driver.findElement(By.name("jdi-text")).getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertEquals(driver.findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
 
         //10 Assert iFrame
         WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));
@@ -124,7 +119,6 @@ public class HPAnnotationTest extends SeleniumBase{
         //16 Assert footer
         WebElement footer = driver.findElement(By.xpath(".//div[contains(@class, 'footer-content')]"));
         assertTrue(footer.isDisplayed());
-
     }
 
 }

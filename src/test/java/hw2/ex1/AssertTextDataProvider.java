@@ -38,10 +38,10 @@ public class AssertTextDataProvider extends SeleniumBase {
 
     @Test(dataProvider = "textData")
     /* TODO
-        * What does i means?
-        * What does s means?
+        * What does i means? - i is for itemIndex - fixed
+        * What does s means? - s is for benefitText - fixed
      */
-    public void AssertText(int i, String s) {
+    public void AssertText(int itemIndex, String benefitText) {
 
         //1 Open test site by URL
         driver.navigate().to("https://epam.github.io/JDI/");
@@ -50,7 +50,7 @@ public class AssertTextDataProvider extends SeleniumBase {
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         assertEquals(texts.size(), 4);
 
-        assertEquals(texts.get(i).getText(), s);
+        assertEquals(texts.get(itemIndex).getText(), benefitText);
 
 
 

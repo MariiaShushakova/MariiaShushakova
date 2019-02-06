@@ -1,9 +1,9 @@
 package HW3.enums;
 
 public enum Titles {
-    // TODO Please try to lead enum as described in Java code Convention
-    HPTitle("Home Page"),
-    JDITitle("JDI GITHUB");
+    // TODO Please try to lead enum as described in Java code Convention - fixed
+    HP_TITLE("Home Page"),
+    JDI_TITLE("JDI GITHUB");
 
     private final String value;
 

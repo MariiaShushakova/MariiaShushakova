@@ -5,33 +5,22 @@ import HW3.enums.Links;
 import HW3.enums.Titles;
 import HW3.enums.Users;
 import base.SeleniumBase;
-// TODO please do not forget delete unused imports
-import org.openqa.selenium.By;
+// TODO please do not forget delete unused imports - fixed
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-// TODO please do not forget delete unused imports
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+// TODO please do not forget delete unused imports - fixed
+
 
 public class HomePageObjectTest extends SeleniumBase {
     private WebDriver driver;
     private HomePage homePage;
 
-    // TODO please do not forget delete commented block of code
-    /*@BeforeClass
-    public void beforeClass() {
-        driver = new ChromeDriver();
-        homePage = PageFactory.initElements(driver, HomePage.class);
-    }*/
+    // TODO please do not forget delete commented block of code - fixed
 
     @BeforeMethod
     public void beforeMethod() {
@@ -42,17 +31,16 @@ public class HomePageObjectTest extends SeleniumBase {
     }
     @AfterMethod
     public void afterMethod(){
-        //17 Close browser
         driver.close();
     }
 
     @Test
     public void HomePageHardAssertTest(){
         //1 Open test site by URL
-        homePage.open(Links.HPLink);
+        homePage.open(Links.HP_LINK);
 
         //2 Assert title Home Page
-        homePage.checkTitle(Titles.HPTitle);
+        homePage.checkTitle(Titles.HP_TITLE);
 
         //3 LogIn
         homePage.login(Users.PITER);
@@ -61,16 +49,16 @@ public class HomePageObjectTest extends SeleniumBase {
         homePage.checkUserName(Users.PITER);
 
         //5 Assert title Home Page
-        homePage.checkTitle(Titles.HPTitle);
+        homePage.checkTitle(Titles.HP_TITLE);
 
         //6 Assert 4 items
         homePage.checkTopBar();
 
         //7 Assert 4 images
-        homePage.checkImages();
+        homePage.checkBenefitIcons();
 
         //8 Assert 4 texts
-        homePage.checkTexts();
+        homePage.checkBenefitTexts();
 
         //9 Assert a text of the main headers
         homePage.checkHeaderText();
@@ -82,13 +70,13 @@ public class HomePageObjectTest extends SeleniumBase {
         homePage.checkLogo();
 
         //12 Switch to the main window
-        homePage.switchiFrame();
+        homePage.swtichFromIFrameToWindow();
 
         //13 Assert test JDI GITHUB
         homePage.titleJDI();
 
         //14 Assert link JDI GITHUB
-        homePage.linkJDI();
+        homePage.checkLinkJDI();
 
         //15 Assert left section
         homePage.checkLeftSection();

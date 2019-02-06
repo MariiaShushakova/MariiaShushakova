@@ -1,11 +1,11 @@
 package HW3.enums;
 
 public enum TopBars {
-    // TODO Please try to lead enum as described in Java code Convention
-    topbarHOME("HOME"),
-    topbarCONTACT("CONTACT FORM"),
-    topbarSERVICE("SERVICE"),
-    topbarMETALS("METALS & COLORS");
+    // TODO Please try to lead enum as described in Java code Convention - fixed
+    TOPBAR_HOME("HOME"),
+    TOPBAR_CONTACT("CONTACT FORM"),
+    TOPBAR_SERVICE("SERVICE"),
+    TOPBAR_METALS("METALS & COLORS");
 
     public final String value;
 

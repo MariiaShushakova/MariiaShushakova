@@ -1,10 +1,10 @@
 package HW3.enums;
 
 public enum Links {
-    // TODO Please try to lead enum as described in Java code Convention
-    HPLink("https://epam.github.io/JDI/index.html"),
-    HPJDI("https://github.com/epam/JDI"),
-    LinkTag("a");
+    // TODO Please try to lead enum as described in Java code Convention - fixed
+    HP_LINK("https://epam.github.io/JDI/index.html"),
+    HP_JDI("https://github.com/epam/JDI"),
+    HP_LINK_TAG("a");
 
     public final String value;
 
@@ -12,7 +12,8 @@ public enum Links {
         this.value = value;
     }
 
-    // TODO Is this getter required here?
+    // TODO Is this getter required here? - Could you please tell me more appropriate way to get a value of
+    // enum element?
     public String getValue() {
         return value;
     }

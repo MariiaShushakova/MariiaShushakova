@@ -11,6 +11,5 @@ public enum Users {
         this.login = login;
         this.password = password;
         this.name = name;
-
     }
 }
