@@ -1,30 +1,42 @@
 package hw2.ex1;
 
-import base.SeleniumBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class AssertTextDataProvider extends SeleniumBase {
+public class AssertTextDataProvider {
 
+    private static final String TEST_URL = "https://epam.github.io/JDI/";
 
     // TODO Exist one more way how to parallel tests (use @BeforeTest)
-    @BeforeTest
-    public void beforeTest() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    // used @BeforeMethod and ThreadLocal for webDriver - don't how to implement it via @BeforeTest
+
+    protected static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+
+    public static WebDriver getDriver() {
+        return webDriver.get();
     }
 
-    @AfterTest
-    public void afterTest(){
-        driver.close();
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod() {
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        webDriver.set(new ChromeDriver());
+        getDriver().get(TEST_URL);
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        getDriver().manage().window().maximize();
     }
 
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod() {
+        webDriver.get().close();
+    }
 
     @DataProvider (parallel = true)
     public Object[][] textData() {
@@ -43,18 +55,11 @@ public class AssertTextDataProvider extends SeleniumBase {
      */
     public void AssertText(int itemIndex, String benefitText) {
 
-        //1 Open test site by URL
-        driver.navigate().to("https://epam.github.io/JDI/");
-
         //2 Find texts and assert value
-        List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
-        assertEquals(texts.size(), 4);
+        List<WebElement> texts = getDriver().findElements(By.cssSelector(".benefit-txt"));
 
+        assertEquals(texts.size(), 4);
         assertEquals(texts.get(itemIndex).getText(), benefitText);
 
-
-
     }
-
-
 }

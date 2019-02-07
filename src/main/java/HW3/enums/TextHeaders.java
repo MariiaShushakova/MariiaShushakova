@@ -8,7 +8,7 @@ public enum TextHeaders {
             " EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR" +
             " IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
-    public final String header;
+    private final String header;
 
     TextHeaders(String header) {
         this.header = header;

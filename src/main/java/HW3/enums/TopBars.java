@@ -7,7 +7,7 @@ public enum TopBars {
     TOPBAR_SERVICE("SERVICE"),
     TOPBAR_METALS("METALS & COLORS");
 
-    public final String value;
+    private final String value;
 
     TopBars(String value) {
         this.value = value;

@@ -12,7 +12,7 @@ public enum Texts {
             "(about 20 internal and\nsome external projects),\n" +
             "wish to get more…");
 
-    public final String itemText;
+    private final String itemText;
 
     Texts(String iconText) {
         this.itemText = iconText;

@@ -6,7 +6,7 @@ public enum Links {
     HP_JDI("https://github.com/epam/JDI"),
     HP_LINK_TAG("a");
 
-    public final String value;
+    private final String value;
 
     Links(String value) {
         this.value = value;

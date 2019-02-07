@@ -81,22 +81,22 @@ public class HomePage {
     // TODO missing empty line between methods - fixed
     //checkTitle
     public void checkTitle(Titles title){
-        assertEquals(driver.getTitle(), title);
+        assertEquals(driver.getTitle(), title.getValue());
     }
 
     // TODO missing empty line between methods - fixed
     //login
     public void login(Users user){
         profileButton.click();
-        login.sendKeys(user.login);
-        password.sendKeys(user.password);
+        login.sendKeys(user.getLogin());
+        password.sendKeys(user.getPassword());
         submit.click();
     }
 
     // TODO missing empty line between methods fixed
     //check name
     public void checkUserName(Users user){
-        assertEquals(userName.getText(), user.name);
+        assertEquals(userName.getText(), user.getName());
     }
 
     // TODO missing empty line between methods

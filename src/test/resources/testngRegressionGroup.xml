@@ -7,7 +7,9 @@
             </run>
         </groups>
         <packages>
-            <package name="hw2.ex2"/>
+            <package name="hw2.ex2.RegressionOrSmokeTest"/>
+            <package name="hw2.ex2.RegressionTest"/>
+            <package name="hw2.ex2.RegrSmokeSimultaneousTest"/>
         </packages>
     </test>
 </suite>
