@@ -24,6 +24,7 @@ public class HPRegressionOrSmokeTest2 extends WebDriverThreadLocalImpl {
         //3 LogIn
         getDriver().findElement(By.cssSelector("[id='user-icon']")).click();
         // TODO What is purpose of current method invocation? - to be sure that name field is present at the page, agreed that it is not mandatory method invocation
+        // TODO what do you expect from invocation getDriver().findElement(By.cssSelector("[id='name']")).isDisplayed();?
         getDriver().findElement(By.cssSelector("[id='name']")).isDisplayed();
         getDriver().findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         getDriver().findElement(By.cssSelector("[id='password']")).sendKeys("1234");
