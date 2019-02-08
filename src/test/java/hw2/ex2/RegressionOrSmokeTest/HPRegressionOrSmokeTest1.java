@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 // TODO I recommend try to find better name for the class - fixed
 public class HPRegressionOrSmokeTest1 extends WebDriverThreadLocalImpl {
 
-
+    // TODO Why you decide split tests into classes? This is not correlated with requirements of HW2
     @Test(groups = "Regression")
     public void HPTest(){
         /* TODO
