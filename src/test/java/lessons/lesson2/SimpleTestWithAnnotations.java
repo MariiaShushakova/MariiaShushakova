@@ -1,30 +1,26 @@
-package lesson3;
+package lessons.lesson2;
 
-import HW3.HomePage;
-import HW3.enums.Users;
-import base.SeleniumBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
-public class SimpleTestPageObject extends SeleniumBase {
+public class SimpleTestWithAnnotations {
     private WebDriver driver;
-    private HomePage homePage;
 
     @BeforeClass
     public void beforeClass() {
-        driver = new ChromeDriver();
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
-
 
     @BeforeMethod
     public void beforeMethod() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
     }
@@ -32,9 +28,10 @@ public class SimpleTestPageObject extends SeleniumBase {
     @AfterMethod()
     public void afterMethod() {
         driver.close();
+
     }
 
-    @Test
+    @Test(invocationCount = 3) //3times (one, the other), in parallel - threadPoolSize = 3
     public void simpleTest(){
 
         //2 Navigate
@@ -42,7 +39,11 @@ public class SimpleTestPageObject extends SeleniumBase {
         //3
         assertEquals(driver.getTitle(), "Home Page");
         //4
-        homePage.login(Users.PITER);
+        driver.findElement(By.cssSelector("[id='user-icon']")).click();
+        driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
+        driver.findElement(By.cssSelector("[id='name']")).isDisplayed();
+        driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
+        driver.findElement(By.cssSelector("[id='login-button']")).click();
 
     }
 }

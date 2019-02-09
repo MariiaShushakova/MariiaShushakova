@@ -1,4 +1,4 @@
-package lesson4;
+package lessons.lesson4;
 
 import base.PageObject.SelenideHomePage;
 import org.testng.annotations.AfterMethod;

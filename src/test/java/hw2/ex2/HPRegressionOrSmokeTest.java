@@ -1,10 +1,9 @@
 package hw2.ex2;
 
-
-import hw2.ex2.WebDriverThreadLocalImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;

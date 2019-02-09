@@ -1,4 +1,4 @@
-package HW3.enums;
+package HW4.enums;
 
 public enum Users {
     PITER("epam", "1234", "PITER CHAILOVSKII");

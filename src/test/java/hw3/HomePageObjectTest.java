@@ -3,7 +3,7 @@ package hw3;
 import HW3.HomePage;
 import HW3.enums.Links;
 import HW3.enums.Titles;
-import HW3.enums.Users;
+import HW4.enums.Users;
 import base.SeleniumBase;
 // TODO please do not forget delete unused imports - fixed
 import org.openqa.selenium.WebDriver;

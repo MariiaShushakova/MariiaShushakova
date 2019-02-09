@@ -1,11 +1,6 @@
-package lesson4;
+package lessons.lesson4;
 
 import base.SelenideBase;
-import com.codeborne.selenide.Browsers;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;

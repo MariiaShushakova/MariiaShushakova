@@ -2,6 +2,7 @@ package HW3;
 
 import HW3.enums.*;
 // TODO Please do not forget delete unused imports - fixed
+import HW4.enums.Users;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
