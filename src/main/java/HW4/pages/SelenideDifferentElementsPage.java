@@ -80,19 +80,12 @@ public class SelenideDifferentElementsPage {
         for (int i = 0; i < depCheckbox.size(); i++) {
             switch (depCheckbox.get(i).getText()) {
                 case "Water":
-                    depListLog.get(i).getText().contains("Water: condition changed to " + state);
-                    break;
-                case "Earth":
-                    depListLog.get(i).getText().contains("Earth: condition changed to " + state);
+                    depListLog.get(0).getText().contains("Water: condition changed to " + state);
                     break;
                 case "Wind":
-                    depListLog.get(i).getText().contains("Wind: condition changed to "  + state);
-                    break;
-                case "Fire":
-                    depListLog.get(i).getText().contains("Fire: condition changed to "  + state);
+                    depListLog.get(0).getText().contains("Wind: condition changed to "  + state);
                     break;
                 default:
-                    System.out.println("Unexpected log record");
                     break;
             }
         }

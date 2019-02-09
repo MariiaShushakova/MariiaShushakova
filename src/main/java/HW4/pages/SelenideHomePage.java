@@ -3,6 +3,7 @@ package HW4.pages;
 import HW4.enums.ServiceMenu;
 import HW4.enums.Titles;
 import HW4.enums.Users;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.support.FindBy;
@@ -31,16 +32,16 @@ public class SelenideHomePage {
     private SelenideElement usernameField;
 
     @FindBy(css = "[class='dropdown']")
-    private SelenideElement dropDown;
+    private SelenideElement dropdown;
 
     @FindBy(css = ".dropdown-menu li")
-    private List<SelenideElement> dropDownMenu;
+    private ElementsCollection dropdownMenu;
 
     @FindBy(css = "a[ui=label]")
-    private SelenideElement leftService;
+    private SelenideElement leftPanelService;
 
     @FindBy(css = "a[ui=label] + ul li")
-    private List<SelenideElement> leftServiceMenu;
+    private List<SelenideElement> leftPanelServiceMenu;
 
     @FindBy(css = ".dropdown-menu a[href*=different]")
     private SelenideElement differentElements;
@@ -63,25 +64,31 @@ public class SelenideHomePage {
     }
 
     public void checkDropDownService(ServiceMenu[] value) {
-        dropDown.click();
-        for (int i = 0; i < dropDownMenu.size(); i++) {
-            if (dropDownMenu.get(i).is(visible)) {
-                dropDownMenu.get(i).shouldHave(text(value[i].getValue()));
+        dropdown.click();
+        for (int i = 0; i < value.length; i++) {
+            for (int j = 0; j < dropdownMenu.size(); j++) {
+                if (dropdownMenu.get(j).toString().contains(value[i].toString())) {
+                    dropdownMenu.get(j).shouldBe(visible);
+                    dropdownMenu.get(j).shouldHave(text(value[i].toString()));
+                }
             }
         }
     }
 
     public void checkLeftPanelService(ServiceMenu[] value) {
-        leftService.click();
-        for (int i = 0; i < leftServiceMenu.size(); i++) {
-            if (leftServiceMenu.get(i).is(visible)) {
-                leftServiceMenu.get(i).shouldHave(text(value[i].getValue()));
+        leftPanelService.click();
+        for (int i = 0; i < value.length; i++) {
+            for (int j = 0; j < leftPanelServiceMenu.size(); j++) {
+                if (leftPanelServiceMenu.get(j).toString().contains(value[i].toString())) {
+                    leftPanelServiceMenu.get(j).shouldBe(visible);
+                    leftPanelServiceMenu.get(j).shouldHave(text(value[i].toString()));
+                }
             }
         }
     }
 
     public void openServiceSubPage(String dropDownOption) {
-        dropDown.click();
+        dropdown.click();
         switch (dropDownOption) {
             case "DIFFERENT ELEMENTS":
                 differentElements.click();
