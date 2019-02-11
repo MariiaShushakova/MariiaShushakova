@@ -1,6 +1,6 @@
 package HW4.enums;
 
-public enum ServiceMenu {
+public enum ServiceMenus {
         SUPPORT("SUPPORT"),
         DATES("DATES"),
         COMPLEX_TABLE("COMPLEX TABLE"),
@@ -10,7 +10,7 @@ public enum ServiceMenu {
 
         private final String value;
 
-        ServiceMenu(String value) {
+        ServiceMenus(String value) {
             this.value = value;
         }
 

@@ -1,82 +1,139 @@
 package hw4;
 
-import HW4.enums.ServiceMenu;
-import HW4.enums.Titles;
-import HW4.enums.Users;
-import HW4.pages.SelenideDifferentElementsPage;
-import HW4.pages.SelenideHomePage;
+import HW4.enums.ServiceMenus;
+import HW4.pages.DatesPage;
+import HW4.pages.DifferentElementsPage;
+import HW4.pages.HomePage;
 import base.SelenideBase;
 import com.codeborne.selenide.Selenide;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static HW4.enums.ServiceMenu.DIFFERENT_ELEMENTS;
+import static HW4.enums.Links.HP_LINK;
+import static HW4.enums.ServiceMenus.DATES;
+import static HW4.enums.ServiceMenus.DIFFERENT_ELEMENTS;
 import static HW4.enums.SupportElements.*;
+import static HW4.enums.Titles.HP_TITLE;
+import static HW4.enums.Users.PITER;
+import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
 
 public class ServicePageTest extends SelenideBase {
-    private SelenideHomePage homePage;
-    private SelenideDifferentElementsPage diffElemPage;
-    // List<String> list = [SupportElements.CHECKBOX_WATER.getValue(), SupportElements.CHECKBOX_WIND.getValue()];
+    private HomePage homePage;
+    private DifferentElementsPage diffElemPage;
+    private DatesPage datesPage;
+
 
     @BeforeMethod
     public void beforeMethod() {
-        Selenide.open(HW4.enums.Links.HP_LINK.getValue());
-        homePage = page(SelenideHomePage.class);
+        //1 Open test url
+        Selenide.open(HP_LINK.getValue());
+        homePage = page(HomePage.class);
+        diffElemPage = page(DifferentElementsPage.class);
+        datesPage = page(DatesPage.class);
     }
 
+    @AfterMethod
+    public void afterMethod() {
+        // Close web driver
+        close();
+    }
+
+
+    // exercise 1
     @Test
     public void differentElementsPageTest() {
-        //1 Assert title Home Page
-        homePage.checkTitle(Titles.HP_TITLE);
+        //2 Assert title Home Page
+        homePage.checkTitle(HP_TITLE);
 
-        //2 Log in to the system
-        homePage.login(Users.PITER);
+        //3 Log in to the system
+        homePage.login(PITER);
 
-        //3 Assert username
-        homePage.checkUsername(Users.PITER);
+        //4 Assert username
+        homePage.checkUsername(PITER);
 
-        //4 Check Service menu values from the Navigation bar
-        homePage.checkDropDownService(ServiceMenu.values());
+        //5 Check Service menu values from the Navigation bar
+        homePage.checkDropDownService(ServiceMenus.values());
 
-        //5 Check Service menu values from the Left Panel
-        homePage.checkLeftPanelService(ServiceMenu.values());
+        //6 Check Service menu values from the Left Panel
+        homePage.checkLeftPanelService(ServiceMenus.values());
 
-        //6 Go to DifferentElements page from the Navigation bar
-        diffElemPage = page(SelenideDifferentElementsPage.class);
-        homePage.openServiceSubPage(DIFFERENT_ELEMENTS.getValue());
+        //7 Go to DifferentElements page from the Navigation bar
+        homePage.openServiceSubPage(DIFFERENT_ELEMENTS);
 
-        //7 Check the elements at the DifferentElements page
+        //8 Check the elements at the DifferentElements page
         diffElemPage.checkElements();
 
-        //8 Assert Right Section exists at the DifferentElements page
+        //9 Assert Right Section exists at the DifferentElements page
         diffElemPage.checkRightSectionExists();
 
-        //9 Assert Left Section exists at the DifferentElements page
+        //10 Assert Left Section exists at the DifferentElements page
         diffElemPage.checkLeftSectionExists();
 
-        //10 Select 'Water' and 'Wind' checkboxes
-        diffElemPage.selectCheckboxes(CHECKBOX_WATER.getValue(), CHECKBOX_WIND.getValue());
+        //11 Select 'Water' and 'Wind' checkboxes
+        diffElemPage.selectCheckboxes(CHECKBOX_WATER, CHECKBOX_WIND);
 
-        //11 Assert checkboxes logs
+        //12 Assert checkboxes logs
         diffElemPage.checkCheckboxesLogs("true");
 
-        //12 Select 'Selen' radio button
-        diffElemPage.selectRadiobuttons(RADIO_BUTTON_SELEN.getValue());
+        //13 Select 'Selen' radio button
+        diffElemPage.selectRadiobuttons(RADIO_BUTTON_SELEN);
 
-        //13 Assert radio button log
+        //14 Assert radio button log
         diffElemPage.checkRadioButtonLogs();
 
-        //14 Select 'Yellow' color
-        diffElemPage.selectColor(DROPDOWN_YELLOW.getValue());
+        //15 Select 'Yellow' color
+        diffElemPage.selectColor(DROPDOWN_YELLOW);
 
-        //15 Assert dropdown values log
+        //16 Assert dropdown values log
         diffElemPage.checkDropdownLogs();
 
-        //16 Deselect 'Water' and 'Wind' checkboxes and assert logs
-        diffElemPage.selectCheckboxes(CHECKBOX_WATER.getValue(), CHECKBOX_WIND.getValue());
+        //17 Deselect 'Water' and 'Wind' checkboxes
+        diffElemPage.selectCheckboxes(CHECKBOX_WATER, CHECKBOX_WIND);
+
+        //18 Assert logs for deselected checkboxes
         diffElemPage.checkCheckboxesLogs("false");
 
     }
 
+    // exercise 2
+    @Test
+    public void datesPageTest() {
+        //2 Assert title Home Page
+        homePage.checkTitle(HP_TITLE);
+
+        //3 Log in to the system
+        homePage.login(PITER);
+
+        //4 Assert username
+        homePage.checkUsername(PITER);
+
+        //5 Open Dates page from Service from Navigation bar
+        homePage.openServiceSubPage(DATES);
+
+        //6 Using drag-and-drop set left to slider to min and right slider to max (from 0, to 100)
+        datesPage.setSlidersValues(0,100);
+
+        //7 Assert logs for 'From' and 'To' sliders
+        datesPage.checkSlidersLogs(0, 100);
+
+        //8 Using drag-and-drop set left to slider to min and right slider to min (from 0, to 0)
+        datesPage.setSlidersValues(0, 0);
+
+        //9 Assert logs for 'From' and 'To' sliders
+        datesPage.checkSlidersLogs(0, 0);
+
+        //10 Using drag-and-drop set left to slider to max and right slider to max (from 100, to 100)
+        datesPage.setSlidersValues(100, 100);
+
+        //11 Assert logs for 'From' and 'To' sliders
+        datesPage.checkSlidersLogs(100, 100);
+
+        //12 Using drag-and-drop set range sliders to the following values (from 30, to 70)
+        datesPage.setSlidersValues(30, 70);
+
+        //13 Assert logs for 'From' and 'To' sliders
+        datesPage.checkSlidersLogs(30, 70);
+    }
 }

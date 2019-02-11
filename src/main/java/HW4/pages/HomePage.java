@@ -1,20 +1,20 @@
 package HW4.pages;
 
-import HW4.enums.ServiceMenu;
+import HW4.enums.ServiceMenus;
 import HW4.enums.Titles;
 import HW4.enums.Users;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class SelenideHomePage {
+public class HomePage {
 
     @FindBy(css = "[id='user-icon']")
     private SelenideElement loginIcon;
@@ -44,11 +44,14 @@ public class SelenideHomePage {
     private List<SelenideElement> leftPanelServiceMenu;
 
     @FindBy(css = ".dropdown-menu a[href*=different]")
-    private SelenideElement differentElements;
+    private SelenideElement differentElementsOption;
+
+    @FindBy(css = ".dropdown-menu a[href*=dates]")
+    private SelenideElement datesOption;
 
 
     public void checkTitle(Titles hpTitle) {
-        assertEquals(WebDriverRunner.getWebDriver().getTitle(), hpTitle.getValue());
+        assertEquals(getWebDriver().getTitle(), hpTitle.getValue());
     }
 
     public void login(Users user) {
@@ -63,7 +66,7 @@ public class SelenideHomePage {
         usernameField.should(text(user.getName()));
     }
 
-    public void checkDropDownService(ServiceMenu[] value) {
+    public void checkDropDownService(ServiceMenus[] value) {
         dropdown.click();
         for (int i = 0; i < value.length; i++) {
             for (int j = 0; j < dropdownMenu.size(); j++) {
@@ -75,7 +78,7 @@ public class SelenideHomePage {
         }
     }
 
-    public void checkLeftPanelService(ServiceMenu[] value) {
+    public void checkLeftPanelService(ServiceMenus[] value) {
         leftPanelService.click();
         for (int i = 0; i < value.length; i++) {
             for (int j = 0; j < leftPanelServiceMenu.size(); j++) {
@@ -87,11 +90,14 @@ public class SelenideHomePage {
         }
     }
 
-    public void openServiceSubPage(String dropDownOption) {
+    public void openServiceSubPage(ServiceMenus dropDownOption) {
         dropdown.click();
-        switch (dropDownOption) {
+        switch (dropDownOption.getValue()) {
             case "DIFFERENT ELEMENTS":
-                differentElements.click();
+                differentElementsOption.click();
+                break;
+            case "DATES":
+                datesOption.click();
                 break;
             default:
                 System.out.println("Invalid page");

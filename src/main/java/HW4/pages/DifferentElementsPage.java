@@ -1,14 +1,13 @@
 package HW4.pages;
 
+import HW4.enums.SupportElements;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Condition.visible;
 
-public class SelenideDifferentElementsPage {
+public class DifferentElementsPage {
     @FindBy(css = ".label-checkbox")
     private ElementsCollection depCheckbox;
 
@@ -60,17 +59,10 @@ public class SelenideDifferentElementsPage {
         depLeftSection.shouldBe(visible);
     }
 
-    public void selectCheckboxesTODO(List<String> values) {
+    public void selectCheckboxes(SupportElements element1, SupportElements element2) {
         for (int i = 0; i < depCheckbox.size(); i++) {
-           if (values.contains(depCheckbox.get(i).getText())) {
-               depCheckbox.get(i).click();
-           }
-        }
-    }
-
-    public void selectCheckboxes(String value1, String value2) {
-        for (int i = 0; i < depCheckbox.size(); i++) {
-            if (depCheckbox.get(i).getText().equals(value1) || depCheckbox.get(i).getText().equals(value2)) {
+            if (depCheckbox.get(i).getText().equals(element1.getValue()) ||
+                    depCheckbox.get(i).getText().equals(element2.getValue())) {
                 depCheckbox.get(i).click();
             }
         }
@@ -91,9 +83,9 @@ public class SelenideDifferentElementsPage {
         }
     }
 
-    public void selectRadiobuttons(String value) {
+    public void selectRadiobuttons(SupportElements metal) {
         for (int i = 0; i < depRadioButton.size(); i++) {
-            if (depRadioButton.get(i).getText().equals(value)) {
+            if (depRadioButton.get(i).getText().equals(metal.getValue())) {
                 depRadioButton.get(i).click();
             }
         }
@@ -106,10 +98,10 @@ public class SelenideDifferentElementsPage {
         }
     }
 
-    public void selectColor(String color) {
+    public void selectColor(SupportElements color) {
         depDropDown.click();
         for (int i = 0; i < depColors.size(); i++) {
-            if (depColors.get(i).getText().equals(color)) {
+            if (depColors.get(i).getText().equals(color.getValue())) {
                 depColors.get(i).click();
             }
         }
