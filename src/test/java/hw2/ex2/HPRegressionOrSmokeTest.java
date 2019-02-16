@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+import static HW2.enums.LongStrings.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -64,16 +65,17 @@ public class HPRegressionOrSmokeTest extends WebDriverThreadLocalImpl {
             assertTrue(texts.get(i).isDisplayed());
         }
 
-        assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
-        assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
-        assertEquals(texts.get(2).getText(), "To be multiplatform");
-        assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        assertEquals(texts.get(0).getText(), BENEFIT_TEXT1.getValue());
+        assertEquals(texts.get(1).getText(), BENEFIT_TEXT2.getValue());
+        assertEquals(texts.get(2).getText(), BENEFIT_TEXT3.getValue());
+        assertEquals(texts.get(3).getText(), BENEFIT_TEXT4.getValue());
 
         //9 Assert a text of the main headers
         assertEquals(getDriver().findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
         // TODO Please format as java code convention. Line is more then 80 char length - fixed
         // long string has been moved to a separate variable to improve code readibility.
-        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
+        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(),
+                LOREM_IPSUM.getValue());
 
         //10 Assert iFrame
         WebElement iframe = getDriver().findElement(By.cssSelector("[id='iframe']"));
@@ -161,16 +163,16 @@ public class HPRegressionOrSmokeTest extends WebDriverThreadLocalImpl {
             assertTrue(texts.get(i).isDisplayed());
         }
 
-        assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
-        assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
-        assertEquals(texts.get(2).getText(), "To be multiplatform");
-        assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        assertEquals(texts.get(0).getText(), BENEFIT_TEXT1.getValue());
+        assertEquals(texts.get(1).getText(), BENEFIT_TEXT2.getValue());
+        assertEquals(texts.get(2).getText(), BENEFIT_TEXT3.getValue());
+        assertEquals(texts.get(3).getText(), BENEFIT_TEXT4.getValue());
 
         //9 Assert a text of the main headers
         assertEquals(getDriver().findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
         // TODO Please format as java code convention. Line is more then 80 char length - fixed
         // long string has been moved to a separate variable to improve code readibility.
-        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
+        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(), LOREM_IPSUM.getValue());
 
         //10 Assert iFrame
         WebElement iframe = getDriver().findElement(By.cssSelector("[id='iframe']"));
@@ -258,16 +260,16 @@ public class HPRegressionOrSmokeTest extends WebDriverThreadLocalImpl {
             assertTrue(texts.get(i).isDisplayed());
         }
 
-        assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
-        assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
-        assertEquals(texts.get(2).getText(), "To be multiplatform");
-        assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        assertEquals(texts.get(0).getText(), BENEFIT_TEXT1.getValue());
+        assertEquals(texts.get(1).getText(), BENEFIT_TEXT2.getValue());
+        assertEquals(texts.get(2).getText(), BENEFIT_TEXT3.getValue());
+        assertEquals(texts.get(3).getText(), BENEFIT_TEXT4.getValue());
 
         //9 Assert a text of the main headers
         assertEquals(getDriver().findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
         // TODO Please format as java code convention. Line is more then 80 char length - fixed
         // long string has been moved to a separate variable to improve code readibility.
-        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(), LOREM_IPSUM);
+        assertEquals(getDriver().findElement(By.name("jdi-text")).getText(), LOREM_IPSUM.getValue());
 
         //10 Assert iFrame
         WebElement iframe = getDriver().findElement(By.cssSelector("[id='iframe']"));

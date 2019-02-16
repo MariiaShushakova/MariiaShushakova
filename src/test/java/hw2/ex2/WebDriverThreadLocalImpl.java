@@ -9,14 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverThreadLocalImpl {
     private static final String TEST_URL = "https://epam.github.io/JDI/";
-    // TODO Why you decide store this value here? - +
-    // TODO Why it public? - can be without modifier
-    static final String LOREM_IPSUM = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD" +
-            " TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD" +
-            " EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN" +
-            " REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
 
-    protected static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         return webDriver.get();
@@ -34,9 +28,7 @@ public class WebDriverThreadLocalImpl {
 
     @AfterMethod(groups = {"Regression", "Smoke"})
     public void closeBrowser() {
-        webDriver.get().close();
-        webDriver.remove();
-
+        webDriver.get().quit();
     }
 
 }
