@@ -97,10 +97,7 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
                         <suiteXmlFile>src\test\resources\annotationConfig.xml</suiteXmlFile>
-                        <suiteXmlFile>src\test\resources\testngRegressionGroup.xml</suiteXmlFile>
-                        <suiteXmlFile>src\test\resources\testngSmokeGroup.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

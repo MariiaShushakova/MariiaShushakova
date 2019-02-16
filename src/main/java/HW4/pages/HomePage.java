@@ -7,8 +7,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -41,7 +39,7 @@ public class HomePage {
     private SelenideElement leftPanelService;
 
     @FindBy(css = "a[ui=label] + ul li")
-    private List<SelenideElement> leftPanelServiceMenu;
+    private ElementsCollection leftPanelServiceMenu;
 
     @FindBy(css = ".dropdown-menu a[href*=different]")
     private SelenideElement differentElementsOption;
@@ -50,7 +48,7 @@ public class HomePage {
     private SelenideElement datesOption;
 
 
-    public void checkTitle(Titles hpTitle) {
+    public void checkPageTitle(Titles hpTitle) {
         assertEquals(getWebDriver().getTitle(), hpTitle.getValue());
     }
 
@@ -65,30 +63,28 @@ public class HomePage {
         usernameField.should(visible);
         usernameField.should(text(user.getName()));
     }
-    //TODO: you can make this two methods checkDropDownService and checkLeftPanelService
-    //to use one common method with income parameters e.g. checkMenuItems(List<SelenideElements>, ServiceMenus)
-    public void checkDropDownService(ServiceMenus[] value) {
-        dropdown.click();
+
+    public void checkMenuItems(ElementsCollection list, ServiceMenus[] value) {
         for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < dropdownMenu.size(); j++) {
-                if (dropdownMenu.get(j).toString().contains(value[i].toString())) {
-                    dropdownMenu.get(j).shouldBe(visible);
-                    dropdownMenu.get(j).shouldHave(text(value[i].toString()));
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j).toString().contains(value[i].toString())) {
+                    list.get(j).shouldBe(visible);
+                    list.get(j).shouldHave(text(value[i].toString()));
                 }
             }
         }
     }
 
+    //TODO: you can make this two methods checkDropDownService and checkLeftPanelService - Done
+    //to use one common method with income parameters e.g. checkMenuItems(List<SelenideElements>, ServiceMenus)
+    public void checkDropDownService(ServiceMenus[] value) {
+        dropdown.click();
+        checkMenuItems(dropdownMenu, value);
+    }
+
     public void checkLeftPanelService(ServiceMenus[] value) {
         leftPanelService.click();
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < leftPanelServiceMenu.size(); j++) {
-                if (leftPanelServiceMenu.get(j).toString().contains(value[i].toString())) {
-                    leftPanelServiceMenu.get(j).shouldBe(visible);
-                    leftPanelServiceMenu.get(j).shouldHave(text(value[i].toString()));
-                }
-            }
-        }
+        checkMenuItems(leftPanelServiceMenu, value);
     }
 
     public void openServiceSubPage(ServiceMenus dropDownOption) {
@@ -104,7 +100,6 @@ public class HomePage {
                 System.out.println("Invalid page");
                 break;
         }
-
     }
 }
 

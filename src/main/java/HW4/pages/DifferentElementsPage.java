@@ -14,7 +14,7 @@ public class DifferentElementsPage {
     @FindBy(css = ".label-radio")
     private ElementsCollection depRadioButton;
 
-    @FindBy(css = ".colors")
+    @FindBy(css = ".colors select")
     private SelenideElement depDropDown;
 
     @FindBy(css = "button[class=uui-button]")
@@ -36,17 +36,11 @@ public class DifferentElementsPage {
     private ElementsCollection depColors;
 
     public void checkElements() {
-        //TODO: use streams e.g. depCheckbox.forEach(el -> el.shouldBe(visible));
-        for (int i = 0; i < depCheckbox.size(); i++) {
-            depCheckbox.get(i).shouldBe(visible);
-        }
+        //TODO: use streams e.g. depCheckbox.forEach(el -> el.shouldBe(visible)); - Done
+        depCheckbox.forEach(el -> el.shouldBe(visible));
         depCheckbox.shouldHaveSize(4);
-
-        for (int i =0; i < depRadioButton.size(); i++) {
-            depRadioButton.get(i).shouldBe(visible);
-        }
+        depRadioButton.forEach(el -> el.shouldBe(visible));
         depRadioButton.shouldHaveSize(4);
-
         depDropDown.shouldBe(visible);
         depButton.shouldBe(visible);
         depDefaultButton.shouldBe(visible);
@@ -60,70 +54,43 @@ public class DifferentElementsPage {
         depLeftSection.shouldBe(visible);
     }
 
-    public void selectCheckboxes(SupportElements element1, SupportElements element2) {
-        //TODO use foreach or streams
-        for (int i = 0; i < depCheckbox.size(); i++) {
-            if (depCheckbox.get(i).getText().equals(element1.getValue()) ||
-                    depCheckbox.get(i).getText().equals(element2.getValue())) {
-                depCheckbox.get(i).click();
-            }
-        }
+    public void selectCheckbox(SupportElements element) {
+        //TODO use foreach or streams - Done
+        SelenideElement checkbox = depCheckbox.stream().filter(box -> box.getText().equalsIgnoreCase(element.getValue())).findFirst().get();
+        checkbox.click();
+}
+
+    public void checkCheckboxEnabled(SupportElements element) {
+        //TODO use foreach or streams - Done
+        depListLog.stream().filter(el -> el.getText().equals(element.getValue() + ": condition changed to true"));
+
     }
 
-    public void checkCheckboxesLogs(String state) {
-        //TODO use foreach or streams
-        for (int i = 0; i < depCheckbox.size(); i++) {
-            switch (depCheckbox.get(i).getText()) {
-                case "Water":
-                    //TODO where the assert?
-                    depListLog.get(0).getText().contains("Water: condition changed to " + state);
-                    break;
-                case "Wind":
-                    //TODO where the assert?
-                    depListLog.get(0).getText().contains("Wind: condition changed to "  + state);
-                    break;
-                default:
-                    break;
-            }
-        }
+    public void checkCheckboxDisabled(SupportElements element) {
+        depListLog.stream().filter(el -> el.getText().equals(element.getValue() + ": condition changed to false"));
+
     }
 
-    public void selectRadiobuttons(SupportElements metal) {
-        //TODO use foreach or streams
-        for (int i = 0; i < depRadioButton.size(); i++) {
-            if (depRadioButton.get(i).getText().equals(metal.getValue())) {
-                depRadioButton.get(i).click();
-            }
-        }
+    public void selectRadiobutton(SupportElements metal) {
+        //TODO use foreach or streams - Done
+        SelenideElement radioControl = depRadioButton.stream().filter(el -> el.getText().equalsIgnoreCase(metal.getValue())).findFirst().get();
+        radioControl.click();
     }
 
-    public void checkRadioButtonLogs() {
-        //TODO use foreach or streams
-        for (int i = 0; i < depRadioButton.size(); i++) {
-            depRadioButton.get(i).click();
-            //TODO where the assert?
-            depListLog.get(i).getText().contains("metal: value changed to " + depRadioButton.get(i).getText());
-        }
+    public void checkRadioButtonLogs(SupportElements element) {
+        //TODO use foreach or streams - Done
+        depListLog.stream().filter(el -> el.getText().equals("metal: value changed to " + element.getValue()));
     }
 
     public void selectColor(SupportElements color) {
-        depDropDown.click();
-        //TODO use foreach or streams
-        for (int i = 0; i < depColors.size(); i++) {
-            if (depColors.get(i).getText().equals(color.getValue())) {
-                depColors.get(i).click();
-            }
-        }
+        depDropDown.selectOptionContainingText(color.getValue());
     }
 
-    public void checkDropdownLogs() {
-        depDropDown.click();
-        //TODO use foreach or streams
-        for (int i = 0; i < depColors.size(); i++) {
-            depColors.get(i).click();
-            //TODO where the assert?
-            depListLog.get(i).getText().contains("Colors: value changed to " + depColors.get(i).getText());
-        }
+    public void checkDropdownLogs(SupportElements color) {
+        //TODO use foreach or streams - Done
+        depListLog.stream().filter(el -> el.getText().equals("Colors: value changed to " + color.getValue()));
+
+
     }
 }
 

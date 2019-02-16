@@ -80,7 +80,7 @@ public class HomePage {
     }
 
     // TODO missing empty line between methods - fixed
-    //checkTitle
+    //checkPageTitle
     public void checkTitle(Titles title){
         assertEquals(driver.getTitle(), title.getValue());
     }
