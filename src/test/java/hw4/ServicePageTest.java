@@ -45,6 +45,7 @@ public class ServicePageTest extends SelenideBase {
     @Test
     public void differentElementsPageTest() {
         //2 Assert title Home Page
+        //TODO: rename checkPageTitle
         homePage.checkTitle(HP_TITLE);
 
         //3 Log in to the system
@@ -98,6 +99,8 @@ public class ServicePageTest extends SelenideBase {
     }
 
     // exercise 2
+    //TODO move test to separate file
+    //Test fails each time when I run it
     @Test
     public void datesPageTest() {
         //2 Assert title Home Page

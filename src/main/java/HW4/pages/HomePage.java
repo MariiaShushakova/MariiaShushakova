@@ -65,7 +65,8 @@ public class HomePage {
         usernameField.should(visible);
         usernameField.should(text(user.getName()));
     }
-
+    //TODO: you can make this two methods checkDropDownService and checkLeftPanelService
+    //to use one common method with income parameters e.g. checkMenuItems(List<SelenideElements>, ServiceMenus)
     public void checkDropDownService(ServiceMenus[] value) {
         dropdown.click();
         for (int i = 0; i < value.length; i++) {

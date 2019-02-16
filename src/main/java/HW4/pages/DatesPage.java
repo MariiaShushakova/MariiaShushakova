@@ -3,6 +3,7 @@ package HW4.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.actions;
@@ -18,15 +19,18 @@ public class DatesPage {
     @FindBy(css = ".uui-slider")
     public SelenideElement sliderPanel;
 
+    //TODO method sometimes sets incorrect position for 30/70 values
     public void setSlidersValues(int from, int to) {
         actions().clickAndHold(dpSlider.get(0))
-                .moveToElement(sliderPanel, ((sliderPanel.getSize().width) * (from)/100 ),0)
+                .moveToElement(sliderPanel, ((sliderPanel.getSize().width) * from / 100), 0)
                 .release().build().perform();
         actions().clickAndHold(dpSlider.get(1))
-                .moveToElement(sliderPanel, ((sliderPanel.getSize().width) * (to + 1)/100), 0)
+                .moveToElement(sliderPanel, ((sliderPanel.getSize().width) * (to + 1) / 100), 0)
                 .release().build().perform();
     }
 
+    //TODO avoid to use get(index) in code; use "for" to check if log contains correct message
+    //MOVE "link clicked" to constant
     public void checkSlidersLogs(int from, int to) {
         dpListLog.get(1).should(text(Integer.toString(from) + " link clicked"));
         dpListLog.get(0).should(text(Integer.toString(to) + " link clicked"));
