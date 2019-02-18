@@ -6,6 +6,7 @@ import HW4.enums.Users;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -47,11 +48,12 @@ public class HomePage {
     @FindBy(css = ".dropdown-menu a[href*=dates]")
     private SelenideElement datesOption;
 
-
+    @Step("Check page title")
     public void checkPageTitle(Titles hpTitle) {
         assertEquals(getWebDriver().getTitle(), hpTitle.getValue());
     }
 
+    @Step("Log in")
     public void login(Users user) {
         loginIcon.click();
         userField.sendKeys(user.getLogin());
@@ -59,6 +61,7 @@ public class HomePage {
         submitButton.click();
     }
 
+    @Step("Check User name")
     public void checkUsername(Users user) {
         usernameField.should(visible);
         usernameField.should(text(user.getName()));
@@ -87,6 +90,7 @@ public class HomePage {
         checkMenuItems(leftPanelServiceMenu, value);
     }
 
+    @Step("Open Dates page")
     public void openServiceSubPage(ServiceMenus dropDownOption) {
         dropdown.click();
         switch (dropDownOption.getValue()) {

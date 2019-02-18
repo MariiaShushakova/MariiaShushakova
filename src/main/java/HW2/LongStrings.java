@@ -1,4 +1,4 @@
-package HW2.enums;
+package HW2;
 
 public enum LongStrings {
     BENEFIT_TEXT1("To include good practices\n"

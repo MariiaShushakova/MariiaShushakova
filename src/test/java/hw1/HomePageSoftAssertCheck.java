@@ -77,7 +77,7 @@ public class HomePageSoftAssertCheck {
         softAssert.assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM project");
         softAssert.assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
         softAssert.assertEquals(texts.get(2).getText(), "To be multiplatform");
-        softAssert.assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        softAssert.assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more...");
 
         //9 Assert a text of the main headers
         softAssert.assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
