@@ -67,6 +67,7 @@ public class HomePage {
         usernameField.should(text(user.getName()));
     }
 
+    @Step("Check Service menu section")
     public void checkMenuItems(ElementsCollection list, ServiceMenus[] value) {
         for (int i = 0; i < value.length; i++) {
             for (int j = 0; j < list.size(); j++) {
@@ -78,13 +79,13 @@ public class HomePage {
         }
     }
 
-    //TODO: you can make this two methods checkDropDownService and checkLeftPanelService - Done
-    //to use one common method with income parameters e.g. checkMenuItems(List<SelenideElements>, ServiceMenus)
+    @Step("Check drop-down menu Service")
     public void checkDropDownService(ServiceMenus[] value) {
         dropdown.click();
         checkMenuItems(dropdownMenu, value);
     }
 
+    @Step("Check left menu Service")
     public void checkLeftPanelService(ServiceMenus[] value) {
         leftPanelService.click();
         checkMenuItems(leftPanelServiceMenu, value);

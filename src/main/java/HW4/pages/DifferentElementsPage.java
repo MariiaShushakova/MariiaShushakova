@@ -3,6 +3,7 @@ package HW4.pages;
 import HW4.enums.SupportElements;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -35,8 +36,8 @@ public class DifferentElementsPage {
     @FindBy(css = ".uui-form-element option")
     private ElementsCollection depColors;
 
+    @Step("Check the elements at the DifferentElements page")
     public void checkElements() {
-        //TODO: use streams e.g. depCheckbox.forEach(el -> el.shouldBe(visible)); - Done
         depCheckbox.forEach(el -> el.shouldBe(visible));
         depCheckbox.shouldHaveSize(4);
         depRadioButton.forEach(el -> el.shouldBe(visible));
@@ -46,48 +47,50 @@ public class DifferentElementsPage {
         depDefaultButton.shouldBe(visible);
     }
 
+    @Step("Check that right section exists")
     public void checkRightSectionExists() {
         depRightSection.shouldBe(visible);
     }
 
+    @Step("Check that right section exists")
     public void checkLeftSectionExists() {
         depLeftSection.shouldBe(visible);
     }
 
+    @Step("Select checkboxes")
     public void selectCheckbox(SupportElements element) {
-        //TODO use foreach or streams - Done
         SelenideElement checkbox = depCheckbox.stream().filter(box -> box.getText().equalsIgnoreCase(element.getValue())).findFirst().get();
         checkbox.click();
 }
 
+    @Step("Check checkboxes logs 'true'")
     public void checkCheckboxEnabled(SupportElements element) {
-        //TODO use foreach or streams - Done
         depListLog.stream().filter(el -> el.getText().equals(element.getValue() + ": condition changed to true"));
-
     }
 
+    @Step("Check checkboxes logs 'false'")
     public void checkCheckboxDisabled(SupportElements element) {
         depListLog.stream().filter(el -> el.getText().equals(element.getValue() + ": condition changed to false"));
-
     }
 
+    @Step("Select radio button")
     public void selectRadiobutton(SupportElements metal) {
-        //TODO use foreach or streams - Done
         SelenideElement radioControl = depRadioButton.stream().filter(el -> el.getText().equalsIgnoreCase(metal.getValue())).findFirst().get();
         radioControl.click();
     }
 
+    @Step("Check radio button logs")
     public void checkRadioButtonLogs(SupportElements element) {
-        //TODO use foreach or streams - Done
         depListLog.stream().filter(el -> el.getText().equals("metal: value changed to " + element.getValue()));
     }
 
+    @Step("Select color")
     public void selectColor(SupportElements color) {
         depDropDown.selectOptionContainingText(color.getValue());
     }
 
+    @Step("Select drop-down log")
     public void checkDropdownLogs(SupportElements color) {
-        //TODO use foreach or streams - Done
         depListLog.stream().filter(el -> el.getText().equals("Colors: value changed to " + color.getValue()));
 
 
