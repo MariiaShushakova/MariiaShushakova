@@ -20,7 +20,7 @@ import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
 
 @Listeners(ScreenshotListener.class)
-public class DatesPageTest extends SelenideBase {
+public class DatesPageTestFail extends SelenideBase {
     private DatesPage datesPage;
     private HomePage homePage;
 
@@ -54,7 +54,8 @@ public class DatesPageTest extends SelenideBase {
         homePage.openServiceSubPage(DATES);
 
         //6 Using drag-and-drop set left to slider to min and right slider to max (from 0, to 100)
-        datesPage.setSlidersValues(0,100);
+        //Fail
+        datesPage.setSlidersValues(0,-1);
 
         //7 Assert logs for 'From' and 'To' sliders
         datesPage.checkSlidersLogs(0, 100);
