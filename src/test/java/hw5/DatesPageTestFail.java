@@ -40,7 +40,7 @@ public class DatesPageTestFail extends SelenideBase {
     @Feature("Dates page test")
     @Story("HW5 Jenkins")
     @Test
-    public void datesPageTest() {
+    public void datesPageTestFail() {
         //2 Assert title Home Page
         homePage.checkPageTitle(HP_TITLE);
 
