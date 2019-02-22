@@ -113,10 +113,10 @@
                         <suiteXmlFile>src\test\resources\servicePageTestsConfig.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -javaagent:"${settings.localRepository}\org\aspectj\aspectjweaver\${aspectj.version}\aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <systemPropertyVariables>
-                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                        <allure.results.directory>${project.build.directory}\allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
