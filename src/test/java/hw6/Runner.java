@@ -17,14 +17,14 @@ import static com.codeborne.selenide.Selenide.close;
 
 public class Runner extends AbstractTestNGCucumberTests {
     @BeforeClass
-    public void driverSetup() {
+    public void openSession() {
         Configuration.browser = Browsers.CHROME;
         Configuration.timeout = 5000;
         Configuration.pollingInterval = 300;
     }
 
     @AfterClass
-    public void finish() {
+    public void closeSession() {
         close();
     }
 }

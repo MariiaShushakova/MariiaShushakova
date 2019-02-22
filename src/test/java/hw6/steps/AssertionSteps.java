@@ -1,10 +1,10 @@
-package hw6;
+package hw6.steps;
 
 import HW6.enums.Titles;
 import HW6.enums.Users;
 import HW6.pagePbjects.HomePage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
+
 import static com.codeborne.selenide.Selenide.page;
 
 public class AssertionSteps {
@@ -16,12 +16,12 @@ public class AssertionSteps {
     }
 
     @Then("^Username should be '([^\"]*)'$")
-    public void usernameShouldBePITER(Users exUser){
+    public void checkUsernameIsCorrect(Users exUser){
         homePage.checkUsername(exUser);
     }
 
     @Then("^Home Page should have (\\d+) benefit icons$")
-    public void homePageShouldHaveBenefitIcons(int arg0){
+    public void homePageIconsCheck(int arg0){
         homePage.checkBenefitIcons();
     }
 }

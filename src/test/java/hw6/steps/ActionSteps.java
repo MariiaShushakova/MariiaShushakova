@@ -1,4 +1,4 @@
-package hw6;
+package hw6.steps;
 
 import HW6.enums.Users;
 import HW6.pagePbjects.HomePage;
