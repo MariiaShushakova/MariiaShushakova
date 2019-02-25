@@ -19,6 +19,7 @@ public class Runner extends AbstractTestNGCucumberTests {
     @BeforeClass
     public void openSession() {
         Configuration.browser = Browsers.CHROME;
+        Configuration.startMaximized = true;
         Configuration.timeout = 5000;
         Configuration.pollingInterval = 300;
     }

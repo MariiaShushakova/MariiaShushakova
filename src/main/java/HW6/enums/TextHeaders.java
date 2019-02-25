@@ -1,4 +1,4 @@
-package HW3.enums;
+package HW6.enums;
 
 public enum TextHeaders {
     TEXT_HEADER_1("EPAM FRAMEWORK WISHES…"),

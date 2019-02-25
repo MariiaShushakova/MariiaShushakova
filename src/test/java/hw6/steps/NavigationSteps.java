@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class NavigationSteps {
     private HomePage homePage;
 
-    @Given("^I open EPAM JDI site$")
+    @Given("^I am on 'Home Page'$")
     public void openEPAMJDISite() {
         open(HP_LINK.getValue());
         homePage = page(HomePage.class);

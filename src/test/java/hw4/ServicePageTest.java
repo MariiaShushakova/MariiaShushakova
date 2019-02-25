@@ -21,8 +21,6 @@ public class ServicePageTest extends SelenideBase {
     private HomePage homePage;
     private DifferentElementsPage diffElemPage;
 
-
-
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test url

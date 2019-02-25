@@ -1,18 +1,14 @@
-package HW6.pagePbjects;
+package HW6.pageObjects;
 
-import HW3.enums.TextHeaders;
-import HW3.enums.Texts;
+import HW6.enums.TextHeaders;
+import HW6.enums.Texts;
 import HW6.enums.ServiceMenus;
 import HW6.enums.Titles;
 import HW6.enums.Users;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -54,6 +50,9 @@ public class HomePage {
 
     @FindBy(css = ".dropdown-menu a[href*=dates]")
     private SelenideElement datesOption;
+
+    @FindBy(css = ".dropdown-menu a[href*=user-table]]")
+    private SelenideElement userTableOption;
 
     @FindBy(css = "[class = 'benefit-icon']")
     private ElementsCollection image;
@@ -104,40 +103,48 @@ public class HomePage {
     }
 
 
-    public void checkHeaderText(){
-        assertEquals(headerText1.getText(), TextHeaders.TEXT_HEADER_1.getValue());
-        assertEquals(headerText2.getText(), TextHeaders.TEXT_HEADER_2.getValue());
+    public void checkHeaderText(TextHeaders textHeader1, TextHeaders textHeader2){
+        assertEquals(headerText1.getText(), textHeader1.getValue());
+        assertEquals(headerText2.getText(), textHeader2.getValue());
+    }
+
+    public void clickDropDownService(){
+        dropdown.click();
     }
 
     public void checkMenuItems(ElementsCollection list, ServiceMenus[] value) {
         for (int i = 0; i < value.length; i++) {
             for (int j = 0; j < list.size(); j++) {
-                if (list.get(j).toString().contains(value[i].toString())) {
+                if (list.get(j).toString().contains(value[i].getValue())) {
                     list.get(j).shouldBe(visible);
-                    list.get(j).shouldHave(text(value[i].toString()));
+                    list.get(j).shouldHave(text(value[i].getValue()));
                 }
             }
         }
     }
 
     public void checkDropDownService(ServiceMenus[] value) {
-        dropdown.click();
         checkMenuItems(dropdownMenu, value);
     }
 
-    public void checkLeftPanelService(ServiceMenus[] value) {
+    public void clickLeftPanelService(){
         leftPanelService.click();
+    }
+
+    public void checkLeftPanelService(ServiceMenus[] value) {
         checkMenuItems(leftPanelServiceMenu, value);
     }
 
     public void openServiceSubPage(ServiceMenus dropDownOption) {
-        dropdown.click();
         switch (dropDownOption.getValue()) {
             case "DIFFERENT ELEMENTS":
                 differentElementsOption.click();
                 break;
             case "DATES":
                 datesOption.click();
+                break;
+            case "USER TABLE":
+                userTableOption.click();
                 break;
             default:
                 System.out.println("Invalid page");

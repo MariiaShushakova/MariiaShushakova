@@ -1,7 +1,8 @@
 package HW6.enums;
 
 public enum Titles {
-    HP_TITLE("Home Page");
+    HP_TITLE("Home Page"),
+    UT_TITLE("User Table");
 
     private final String value;
 
