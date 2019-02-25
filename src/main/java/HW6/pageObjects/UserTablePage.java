@@ -26,17 +26,11 @@ public class UserTablePage {
     @FindBy(css = "#user-table tr > td > div > span")
     private ElementsCollection texts;
 
-    @FindBy(css = "#user-table tr > td > div > input")
-    private ElementsCollection checkboxes;
-
     @FindBy(css = "[type ='checkbox']")
-    private ElementsCollection vipCheckboxes;
+    private ElementsCollection checkboxes;
 
     @FindBy(css = "[class='panel-body-list logs'] > li")
     private ElementsCollection logs;
-
-    @FindBy(css = "tbody > tr:nth-child(2) option")
-    private ElementsCollection optionsInDropdown;
 
     @FindBy(css = "tr > td:first-child")
     private ElementsCollection numbers;
@@ -77,8 +71,8 @@ public class UserTablePage {
     }
 
     public void selectVipCheckbox(TableNames userName) {
-        for (SelenideElement vip : vipCheckboxes) {
-            if (userName.toString().toLowerCase().contains(vip.getAttribute("id"))){
+        for (SelenideElement vip : checkboxes) {
+            if (userName.getValue().toLowerCase().contains(vip.getAttribute("id"))){
                     vip.click();
             }
         }

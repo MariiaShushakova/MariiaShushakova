@@ -147,6 +147,17 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
     </build>
 
     <reporting>
@@ -159,6 +170,21 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+        <profile>
+            <id>DEV</id>
+            <properties>
+                <domain>http://www.dev.epam.com</domain>
+            </properties>
+        </profile>
+        <profile>
+            <id>QA</id>
+            <properties>
+                <domain>http://www.qa.epam.com</domain>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
 

@@ -51,7 +51,7 @@ public class HomePage {
     @FindBy(css = ".dropdown-menu a[href*=dates]")
     private SelenideElement datesOption;
 
-    @FindBy(css = ".dropdown-menu a[href*=user-table]]")
+    @FindBy(css = ".dropdown-menu a[href*=user-table]")
     private SelenideElement userTableOption;
 
     @FindBy(css = "[class = 'benefit-icon']")

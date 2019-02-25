@@ -4,8 +4,8 @@ import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import static com.codeborne.selenide.Selenide.close;
 
@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.close;
 )
 
 public class Runner extends AbstractTestNGCucumberTests {
-    @BeforeClass
+    @BeforeMethod
     public void openSession() {
         Configuration.browser = Browsers.CHROME;
         Configuration.startMaximized = true;
@@ -24,7 +24,7 @@ public class Runner extends AbstractTestNGCucumberTests {
         Configuration.pollingInterval = 300;
     }
 
-    @AfterClass
+    @AfterMethod
     public void closeSession() {
         close();
     }
