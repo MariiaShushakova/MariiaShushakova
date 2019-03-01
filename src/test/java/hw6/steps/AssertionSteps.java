@@ -108,8 +108,7 @@ public class AssertionSteps {
 
     @And("^User table contains following values:$")
     public void userTableContainsFollowingValues(DataTable dataTable) {
-        userTablePage.checkUserTableValues(dataTable);
-
+       userTablePage.checkUserTableValues(dataTable);
     }
 
     @Then("^(\\d+) log row has '([^\"]*)' text in log section$")
