@@ -1,9 +1,7 @@
 package base.JDI.entities;
 
 import base.JDI.enums.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,21 +10,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MetalsColors {
-    public static MetalsColors DEFAULT = new MetalsColors(
+    public static MetalsColors DATASET = new MetalsColors(
                 Arrays.asList(Vegetables.Cucumber.name(),
                 Vegetables.Tomato.name()),
                 Arrays.asList(Elements.Water.name(),
                 Elements.Fire.name()),
                 Metals.Selen.name(),
                 Colors.Yellow.name(),
-                EvenSelector.EIGHT.value,
-                OddsSelector.THREE.value
+                EvenSelector.EIGHT.getValue(),
+                OddsSelector.THREE.getValue()
     );
 
-        List<String> vegetables;
-        List<String> elements;
-        String metals;
-        String colors;
-        int odds;
-        int even;
+        List<String> vegetable;
+        List<String> element;
+        String metal;
+        String color;
+        Integer odd;
+        Integer even;
 }

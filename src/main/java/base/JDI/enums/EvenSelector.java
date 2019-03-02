@@ -1,7 +1,9 @@
 package base.JDI.enums;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public enum EvenSelector {
     TWO("2",2),
@@ -9,6 +11,6 @@ public enum EvenSelector {
     SIX("6",6),
     EIGHT("8",8);
 
-    public String eventSelector;
-    public int value;
+    private String evenSelector;
+    private Integer value;
 }

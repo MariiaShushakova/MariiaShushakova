@@ -23,7 +23,7 @@ public class JDIHomePage extends WebPage {
     }
 
     public void openMenu(Navigation item){
-        header.navigationBar.select(item.toString());
+        header.navigationBar.select(item.getValue());
         metalsColorsPage.shouldBeOpened();
     }
 

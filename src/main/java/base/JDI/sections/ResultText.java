@@ -22,9 +22,9 @@ public class ResultText extends Section {
         }
 
         assertTrue(resultContent.contains("Summary: " + (params.getOdd() + params.getEven())));
-        assertTrue(resultContent.contains("Elements: " + String.join(", ", params.getNature())));
+        assertTrue(resultContent.contains("Elements: " + String.join(", ", params.getElement())));
         assertTrue(resultContent.contains("Color: " + params.getColor()));
         assertTrue(resultContent.contains("Metal: " + params.getMetal()));
-        assertTrue(resultContent.contains("Vegetables: " + String.join(", ", params.getVegetables())));
+        assertTrue(resultContent.contains("Vegetables: " + String.join(", ", params.getVegetable())));
     }
 }

@@ -20,29 +20,29 @@ public class MetalsColorsForm extends Form<MetalsColorsForm> {
     @JDropdown(root = "#salad-dropdown", value = ".dropdown-toggle", list = "li", expand = ".caret")
     public static Droplist vegetables;
 
-    @FindBy(css = "#elements-checklist > p")
+    @FindBy(css = "#elements-checklist p")
     public WebList elements;
 
-    @FindBy(id = "odds-selector")
+    @FindBy(css = "#odds-selector")
     public HtmlRadioGroup oddsSelector;
 
-    @FindBy(id = "even-selector")
+    @FindBy(css = "#even-selector")
     public HtmlRadioGroup evenSelector;
 
-    @FindBy(id = "calculate-button")
+    @FindBy(css = "#calculate-button")
     public Button calculateButton;
 
 
     public void fillForm(MetalsColors metalsColors) {
-//        oddsSelector.select(metalsColors.getOdd().toString());
-//        evenSelector.select(metalsColors.getEven().toString());
-//        calculateButton.click();
-//        metalsColors.getElement()
-//                .forEach(s -> elements.select(s));
-//        colors.select(metalsColors.getColor());
-//        metals.select(metalsColors.getMetal());
-//        vegetables.select(vegetables.getSelected());
-//        metalsColors.getVegetable()
-//                .forEach(s -> vegetables.select(s));
+        oddsSelector.select(metalsColors.getOdd().toString());
+        evenSelector.select(metalsColors.getEven().toString());
+        calculateButton.click();
+        metalsColors.getElement()
+                .forEach(elem -> elements.select(elem));
+        colors.select(metalsColors.getColor());
+        metals.select(metalsColors.getMetal());
+        vegetables.select(vegetables.getSelected());
+        metalsColors.getVegetable()
+                .forEach(elem -> vegetables.select(elem));
     }
 }

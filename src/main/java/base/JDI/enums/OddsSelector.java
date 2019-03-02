@@ -1,7 +1,9 @@
 package base.JDI.enums;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public enum OddsSelector {
     ONE("1", 1),
@@ -9,6 +11,6 @@ public enum OddsSelector {
     FIVE("5", 5),
     SEVEN("7", 7);
 
-    public String oddsSelector;
-    public int value;
+    private String oddsSelector;
+    private Integer value;
 }

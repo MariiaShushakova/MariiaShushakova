@@ -13,7 +13,7 @@ import static base.JDI.JDISite.jdiHomePage;
 import static base.JDI.JDISite.metalsColorsPage;
 import static base.JDI.enums.Navigation.METALS_COLORS;
 
-public class JDISimpleTest {
+public class JDITest {
     @BeforeSuite
     public void beforeSuite() {
         PageFactory.initElements(JDISite.class);
@@ -26,9 +26,9 @@ public class JDISimpleTest {
         jdiHomePage.login(User.PITER);
         jdiHomePage.openMenu(METALS_COLORS);
 
-        metalsColorsPage.fillForm(MetalsColors.DEFAULT);
+        metalsColorsPage.fillForm(MetalsColors.DATASET);
         metalsColorsPage.submitForm();
-        metalsColorsPage.checkForm(MetalsColors.DEFAULT);
+        metalsColorsPage.checkForm(MetalsColors.DATASET);
     }
 
     @AfterSuite

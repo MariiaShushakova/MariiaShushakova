@@ -78,14 +78,12 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>1.2.5</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>1.2.5</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -97,7 +95,12 @@
             <groupId>info.cukes</groupId>
             <artifactId>gherkin</artifactId>
             <version>2.12.2</version>
-            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
         </dependency>
 
     </dependencies>
@@ -146,6 +149,20 @@
                     <reportVersion>2.7.0</reportVersion>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>1.16.8.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
         <resources>
@@ -170,21 +187,6 @@
             </plugin>
         </plugins>
     </reporting>
-
-    <profiles>
-        <profile>
-            <id>DEV</id>
-            <properties>
-                <domain>http://www.dev.epam.com</domain>
-            </properties>
-        </profile>
-        <profile>
-            <id>QA</id>
-            <properties>
-                <domain>http://www.qa.epam.com</domain>
-            </properties>
-        </profile>
-    </profiles>
 
 </project>
 

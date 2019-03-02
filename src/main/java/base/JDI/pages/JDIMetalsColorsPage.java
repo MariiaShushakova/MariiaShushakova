@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class JDIMetalsColorsPage extends WebPage {
 
-    @FindBy(id = "submit-button")
+    @FindBy(css = "#submit-button")
     public Button submit;
 
     MetalsColorsForm form;
