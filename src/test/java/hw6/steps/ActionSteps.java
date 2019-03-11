@@ -1,12 +1,12 @@
 package hw6.steps;
 
-import HW6.enums.ServiceMenus;
-import HW6.enums.SupportElements;
-import HW6.enums.TableNames;
-import HW6.enums.Users;
-import HW6.pageObjects.DifferentElementsPage;
-import HW6.pageObjects.HomePage;
-import HW6.pageObjects.UserTablePage;
+import hw6.enums.ServiceMenus;
+import hw6.enums.SupportElements;
+import hw6.enums.TableNames;
+import hw6.enums.Users;
+import hw6.pageObjects.DifferentElementsPage;
+import hw6.pageObjects.HomePage;
+import hw6.pageObjects.UserTablePage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 

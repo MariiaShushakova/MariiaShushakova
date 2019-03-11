@@ -1,7 +1,7 @@
 package lessons.lesson3;
 
-import HW3.HomePage;
-import HW4.enums.Users;
+import hw3.HomePage;
+import hw4.enums.Users;
 import base.SeleniumBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

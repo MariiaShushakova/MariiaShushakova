@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static HW2.LongStrings.*;
+import static hw2.LongStrings.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 

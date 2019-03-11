@@ -1,8 +1,8 @@
 package hw5;
 
-import HW4.enums.ServiceMenus;
-import HW4.pages.DifferentElementsPage;
-import HW4.pages.HomePage;
+import hw4.enums.ServiceMenus;
+import hw4.pages.DifferentElementsPage;
+import hw4.pages.HomePage;
 import base.SelenideBase;
 import base.utils.ScreenshotListener;
 import com.codeborne.selenide.Selenide;
@@ -13,11 +13,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static HW4.enums.Links.HP_LINK;
-import static HW4.enums.ServiceMenus.DIFFERENT_ELEMENTS;
-import static HW4.enums.SupportElements.*;
-import static HW4.enums.Titles.HP_TITLE;
-import static HW4.enums.Users.PITER;
+import static hw4.enums.Links.HP_LINK;
+import static hw4.enums.ServiceMenus.DIFFERENT_ELEMENTS;
+import static hw4.enums.SupportElements.*;
+import static hw4.enums.Titles.HP_TITLE;
+import static hw4.enums.Users.PITER;
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
 

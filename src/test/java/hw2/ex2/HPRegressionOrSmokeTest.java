@@ -6,14 +6,14 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static HW2.LongStrings.*;
+import static hw2.LongStrings.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 // TODO I recommend try to find better name for the class - fixed
 public class HPRegressionOrSmokeTest extends WebDriverThreadLocalImpl {
 
-    // TODO Why you decide split tests into classes? This is not correlated with requirements of HW2 - fixed
+    // TODO Why you decide split tests into classes? This is not correlated with requirements of hw2 - fixed
     @Test(groups = "Regression")
     public void HPTest1(){
         /* TODO

@@ -1,9 +1,9 @@
 package hw6.steps;
 
-import HW6.enums.*;
-import HW6.pageObjects.DifferentElementsPage;
-import HW6.pageObjects.HomePage;
-import HW6.pageObjects.UserTablePage;
+import hw6.enums.*;
+import hw6.pageObjects.DifferentElementsPage;
+import hw6.pageObjects.HomePage;
+import hw6.pageObjects.UserTablePage;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
