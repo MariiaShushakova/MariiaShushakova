@@ -19,12 +19,16 @@ import static hw8.JDISite.metalsColorsPage;
 import static hw8.enums.Navigation.METALS_COLORS;
 
 public class JdiDataProviderTest {
+
+    public static final String DATA_SET_JSON = "src/test/resources/hw8/JDI_ex8_metalsColorsDataSet.json";
+
     @BeforeMethod
     public void beforeMethod() {
         PageFactory.initElements(JDISite.class);
         jdiHomePage.open();
     }
 
+    // TODO Take a look on IDEA warning
     @Test(dataProvider = "provideData")
     public void JdiDataProviderTest(MetalsColorsFormData data) {
 
@@ -47,10 +51,11 @@ public class JdiDataProviderTest {
     @DataProvider
     public Object[][] provideData() throws FileNotFoundException {
         JsonObject jsonMap = new JsonParser()
-                .parse(new FileReader("src/test/resources/hw8/JDI_ex8_metalsColorsDataSet.json"))
+                .parse(new FileReader(DATA_SET_JSON))
                 .getAsJsonObject();
         Object[][] returnedArray = new Object[jsonMap.size()][1];
-        int i= 0;
+        // TODO What is the reason for foreach loop here ? Why don't you use fori ?
+        int i = 0;
         for (Map.Entry<String, JsonElement> entry : jsonMap.entrySet()) {
             returnedArray[i++][0] = new Gson()
                     .fromJson(entry.getValue(), MetalsColorsFormData.class);
