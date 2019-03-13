@@ -1,6 +1,6 @@
 package hw8.pages;
 
-import hw8.entities.MetalsColorsFormData;
+import hw8.utils.MetalsColorsFormData;
 import hw8.forms.MetalsColorsForm;
 import hw8.sections.ResultText;
 import com.epam.jdi.light.elements.base.BaseUIElement;
@@ -10,9 +10,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static hw8.entities.MetalsColorsFormData.listToStringWithoutBrackets;
+import static hw8.utils.MetalsColorsFormData.listToStringWithoutBrackets;
 import static java.util.stream.Collectors.*;
 import static org.testng.Assert.assertEquals;
 

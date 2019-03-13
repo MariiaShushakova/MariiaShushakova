@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import hw8.entities.MetalsColorsFormData;
+import hw8.utils.MetalsColorsFormData;
 import hw8.entities.User;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,18 +23,17 @@ import static hw8.enums.Navigation.METALS_COLORS;
 
 public class JdiDataProviderTest {
 
-    public static final String DATA_SET_JSON = "src/test/resources/hw8/JDI_ex8_metalsColorsDataSet.json";
-    public static final String CHROME_DRIVER = "webdriver.chrome.driver";
-    public static final String CHROME_DRIVER_PATH = "\\src\\main\\resources\\chromedriver.exe";
+    public static final String DATA_SET_JSON =
+            "src/test/resources/hw8/JDI_ex8_metalsColorsDataSet.json";
 
     @BeforeMethod
     public void beforeMethod() {
-        //setProperty(CHROME_DRIVER, CHROME_DRIVER_PATH);
         PageFactory.initElements(JDISite.class);
         jdiHomePage.open();
     }
 
     // TODO Take a look on IDEA warning
+    // Not sure which warnings you are talking about...
     @Test(dataProvider = "provideData")
     public void JdiDataProviderTest(MetalsColorsFormData data) {
 
