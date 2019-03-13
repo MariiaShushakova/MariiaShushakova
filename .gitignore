@@ -10,3 +10,5 @@ gen
 target/
 build/
 .allure/
+lib/
+cucumber-html-reports/

@@ -8,7 +8,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import hw8.entities.MetalsColorsFormData;
 import hw8.entities.User;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,9 +24,12 @@ import static hw8.enums.Navigation.METALS_COLORS;
 public class JdiDataProviderTest {
 
     public static final String DATA_SET_JSON = "src/test/resources/hw8/JDI_ex8_metalsColorsDataSet.json";
+    public static final String CHROME_DRIVER = "webdriver.chrome.driver";
+    public static final String CHROME_DRIVER_PATH = "\\src\\main\\resources\\chromedriver.exe";
 
     @BeforeMethod
     public void beforeMethod() {
+        //setProperty(CHROME_DRIVER, CHROME_DRIVER_PATH);
         PageFactory.initElements(JDISite.class);
         jdiHomePage.open();
     }
