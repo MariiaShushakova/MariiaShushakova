@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static hw8.entities.MetalsColorsFormData.listToStringWithoutBrackets;
+import static java.util.stream.Collectors.*;
 import static org.testng.Assert.assertEquals;
 
 public class JDIMetalsColorsPage extends WebPage {
@@ -23,12 +24,9 @@ public class JDIMetalsColorsPage extends WebPage {
     public MetalsColorsForm form;
     ResultText result;
 
-
-
-
-
     public void checkResult(MetalsColorsFormData data) {
-        List<String> actual = results.stream().map(BaseUIElement::getText).collect(Collectors.toList());
+        List<String> actual = results.stream()
+                .map(BaseUIElement::getText).collect(toList());
         List<String> expected = Arrays.asList(
                 "Summary: " + (data.summary.get(0) + data.summary.get(1)),
                 "Elements: " + listToStringWithoutBrackets(data.elements),
