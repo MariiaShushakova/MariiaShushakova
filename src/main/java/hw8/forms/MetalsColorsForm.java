@@ -8,7 +8,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.light.ui.html.base.HtmlRadioGroup;
 import com.epam.jdi.light.ui.html.common.Button;
 import hw8.entities.MetalsColors;
-import hw8.utils.MetalsColorsFormData;
+import hw8.entities.MetalsColorsFormData;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
 

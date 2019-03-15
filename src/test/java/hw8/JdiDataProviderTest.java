@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import hw8.utils.MetalsColorsFormData;
+import hw8.entities.MetalsColorsFormData;
 import hw8.entities.User;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
