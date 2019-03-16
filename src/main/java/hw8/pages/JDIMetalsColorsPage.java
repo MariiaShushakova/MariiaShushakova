@@ -11,7 +11,6 @@ import hw8.sections.ResultText;
 import java.util.Arrays;
 import java.util.List;
 
-import static hw8.utils.Utils.listToStringWithoutBrackets;
 import static java.util.stream.Collectors.toList;
 import static org.testng.Assert.assertEquals;
 
@@ -24,14 +23,13 @@ public class JDIMetalsColorsPage extends WebPage {
     ResultText result;
 
     public void checkResult(MetalsColorsFormData data) {
-        List<String> actual = results.stream()
-                .map(BaseUIElement::getText).collect(toList());
+        List<String> actual = results.stream().map(BaseUIElement::getText).collect(toList());
         List<String> expected = Arrays.asList(
                 "Summary: " + (data.summary.get(0) + data.summary.get(1)),
-                "Elements: " + listToStringWithoutBrackets(data.elements),
+                "Elements: " + String.join(", ", data.elements),
                 "Color: " + data.color,
                 "Metal: " + data.metals,
-                "Vegetables: " + listToStringWithoutBrackets(data.vegetables));
+                "Vegetables: " + String.join(", ",data.vegetables));
         assertEquals(expected, actual);
     }
 }
