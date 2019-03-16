@@ -1,23 +1,23 @@
 ***замечания***
 - TC_CapsLettersCheck - хотелось бы видеть проверки на expected значения тАИЛАНД == Таиланд, например, 
 проверка статусов и количества ошибок - мало
-    // done for TC_CapsLettersCheck
+    // done for TC_CapsLettersCheck+
 
 - TC_WrongLettersCheck_groovy
 - зачем тест дата, если все данные в коде
-   // groovy тест использует ответ степа checkText для ассертов, поэтому тест дата необходима
+   // groovy тест использует ответ степа checkText для ассертов, поэтому тест дата необходима+
 
 - если в одной итерации тест завалился, то этого не видно в графическом отчете soupUI - все равно все степ зеленые
-    //done
+    //done -
 
 - хочется видеть хоть один сценарий, где есть использований пропертей проекта или теста
-    // добавила project property SC_OK=200
+    // добавила project property SC_OK=200+
 
 - хочется видеть хоть один сценарий с использование setup Script
-    //done for TC_WrongLettersCheck
+    //done for TC_WrongLettersCheck-
 
 ***пожелания***
-- TC_WrongLettersCheck_groovy fail иттерационный степ можно и красненьким посветить в логе
+- TC_WrongLettersCheck_groovy fail иттерационный степ можно и красненьким посветить в логе -
 
 
 
